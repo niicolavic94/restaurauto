@@ -1,0 +1,277 @@
+
+  <!DOCTYPE html>
+  <html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Restaur Real Auto offre des services de nettoyage automobile de haute qualité.">
+    <meta name="keywords" content="nettoyage auto, lavage, intérieur, extérieur, complet">
+    <title>Restaur Real Auto - Nettoyage</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        color: #333;
+      }
+      h1 {
+  font-size: 4rem;
+}
+      .services {
+        padding: 40px 20px;
+        text-align: center;
+        background-color: #000;
+        min-height: 500px;
+        color: white;
+      }
+  
+      .service-cards {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+      }
+  
+      .card-container {
+        display: flex;
+        align-items: center;
+        width: 80%;
+        max-width: 800px;
+        margin: 0 auto;
+        transition: transform 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        height: 400px; /* Augmenter la hauteur de la carte */
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
+  
+      .card-image {
+        width: 50%;
+        height: 100%;
+        border-radius: 10px 0 0 10px;
+        overflow: hidden;
+        position: relative;
+      }
+  
+      .card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+  
+      .card-image:hover img {
+        transform: scale(1.1);
+      }
+  
+      .neon-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black; /* Blanc */
+  font-size: 1.5em;
+ 
+  font-family: 'Bebas Neue', sans-serif;
+  text-shadow: 
+    0 0 5px #ffffff, 
+    0 0 10px #ffffff, 
+    0 0 15px #ffffff, 
+    0 0 20px #ffffff, 
+    0 0 30px #ffffff, 
+    0 0 40px #ffffff;
+}
+
+  
+      .forfait-card {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 50%;
+        height: 100%;
+        background-color: #c3964d;
+        color: white;
+        padding: 20px;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+        transform: translateX(100%);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; /* Utiliser space-between pour espacer le contenu */
+        align-items: center;
+        text-align: center;
+      }
+  
+      .card-container:hover .forfait-card {
+        transform: translateX(0%) rotate(0deg);
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
+      }
+  
+      .forfait-card h3 {
+        margin-bottom: 10px;
+        font-size: 1.9em; /* Augmenter la taille du titre */
+        font-weight: bold; /* Mettre le titre en gras */
+      }
+  
+      .forfait-card .price {
+        font-weight: bold;
+        color: #000;
+        margin: 10px 0 20px 0;
+        font-size: 1.9em; /* Augmenter la taille du prix */
+      }
+  
+      .forfait-card ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 10px 0;
+      }
+  
+      .forfait-card ul li {
+        margin: 5px 0;
+        font-size: 1em;
+      }
+  
+      .rdv-btn {
+        margin-top: 20px; /* Réduire la marge supérieure du bouton */
+        padding: 15px 30px;
+        background-color: #000;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        font-size:  1.2em;
+      }
+  
+      .rdv-btn:hover {
+        background-color: #333;
+        transform: scale(1.05);
+      }
+  
+      footer {
+        background-color: #c3964d;
+        padding: 30px 20px;
+        color: white;
+        text-align: center;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+  
+      .footer-icons {
+        display: flex;
+        gap: 10px;
+      }
+  
+      .footer-icons img {
+        width: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="navbar">
+          <ul>
+              <li><a href="#accueil">Accueil</a></li>
+              <li><a href="restauration.html">Restauration</a></li>
+              <li><a href="entretien.html">Entretien</a></li>
+              <li><a href="nettoyage.html">Nettoyage</a></li>
+              <li><a href="evenementiel.html">Événementiel</a></li>
+          </ul>
+      </nav>
+      <div class="hero">
+          <img src="./images/logo.png" alt="Logo Restaur Real Auto" class="logo" />
+      </div>
+      <div class="header-icons">
+          <img src="./images/icones/calendrier.png" alt="Calendrier" />
+          <img src="./images/icones/utilisateur.png" alt="Utilisateur" />
+      </div>
+  </header>
+  
+    <main role="main">
+      <section class="services" id="nettoyage" aria-labelledby="services-heading">
+        <h1 id="services-heading">Nettoyage</h1>
+        <p>Découvrez nos services de nettoyage automobile pour garder votre véhicule impeccable !</p>
+        <p>Nous offrons des solutions complètes pour l'intérieur et l'extérieur de votre voiture.</p>
+        <p>Explorez nos différentes options de nettoyage.</p>
+  
+        <div class="service-cards">
+          <div class="card-container">
+            <div class="card-image">
+              <img src="./images/nettoyage.jpg" alt="Nettoyage Intérieur" />
+              <div class="card-label">Intérieur</div>
+              <h2 class="neon-title">Nettoyage Intérieur</h2> <!-- Titre en néon -->
+            </div>
+            <div class="forfait-card">
+              <h3>Forfait Intérieur</h3>
+              <p class="price">50€</p>
+              <p><strong>Tâches réalisées :</strong></p>
+              <ul>
+                <li>Aspiration complète de l'habitacle</li>
+                <li>Nettoyage complet intérieur </li>
+                <li>Dépoussiérage du tableau de bord</li>
+                <li>Désinfection des surfaces</li>
+              </ul>
+              <button class="rdv-btn">Prendre RDV</button>
+            </div>
+          </div>
+  
+          <div class="card-container">
+            <div class="card-image">
+              <img src="./images/nettoyage.jpg" alt="Nettoyage Extérieur" />
+              <div class="card-label">Extérieur</div>
+              <h2 class="neon-title">Nettoyage Extérieur</h2> <!-- Titre en néon -->
+            </div>
+            <div class="forfait-card">
+              <h3>Forfait Extérieur</h3>
+              <p class="price">40€</p>
+              <p><strong>Tâches réalisées :</strong></p>
+              <ul>
+                <li>Lavage haute pression de la carrosserie</li>
+                <li>Nettoyage des jantes et des pneus</li>
+                <li>Nettoyage des vitres extérieures</li>
+                <li>Séchage manuel</li>
+              </ul>
+              <button class="rdv-btn">Prendre RDV</button>
+            </div>
+          </div>
+  
+          <div class="card-container">
+            <div class="card-image">
+              <img src="./images/nettoyage.jpg" alt="Nettoyage Complet" />
+              <div class="card-label">Complet</div>
+              <h2 class="neon-title">Nettoyage Complet</h2> <!-- Titre en néon -->
+            </div>
+            <div class="forfait-card">
+              <h3>Forfait Complet</h3>
+              <p class="price">80€</p>
+              <p><strong>Tâches réalisées :</strong></p>
+              <ul>
+                <li>Toutes les tâches du forfait Intérieur</li>
+                <li>Toutes les tâches du forfait Extérieur</li>
+                <li>Nettoyage du coffre</li>
+                <li>Traitement des plastiques extérieurs</li>
+              </ul>
+              <button class="rdv-btn">Prendre RDV</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  
+    <footer>
+      <div class="footer-icons">
+        <img src="./images/icones/appel-telephonique.png" alt="Téléphone" />
+        <img src="./images/icones/email.png" alt="Email" />
+      </div>
+      <p>© 2024 Restaur Real Auto</p>
+      <div class="footer-icons">
+        <img src="./images/icones/google-maps.png" alt="Localisation" />
+        <img src="./images/icones/instagram.png" alt="Instagram" />
+      </div>
+    </footer>
+  </body>
+  </html>

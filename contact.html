@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact & Devis - Restaur Real Auto</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #c3964d;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.8em;
+      margin-bottom: 30px;
+    }
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #111;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(195, 150, 77, 0.3);
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #c3964d;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1em;
+      box-sizing: border-box;
+    }
+    input, textarea {
+      background-color: #222;
+      color: #fff;
+    }
+    select {
+      background-color: #fff;
+      color: #000;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      box-shadow: 0 0 5px #c3964d;
+    }
+    .button-container {
+      text-align: center;
+    }
+    button {
+      padding: 12px 30px;
+      background-color: #c3964d;
+      color: #000;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1em;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #d4af37;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .custom-file-input {
+      position: relative;
+      display: flex;
+      align-items: center;
+      background-color: #c3964d;
+      border-radius: 5px;
+      overflow: hidden;
+      padding: 10px 15px;
+      cursor: pointer;
+      color: #000;
+    }
+    .custom-file-input input[type="file"] {
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0;
+      height: 100%;
+      width: 100%;
+      cursor: pointer;
+    }
+    #file-name {
+      font-size: 0.95em;
+      flex: 1;
+    }
+    #drop-zone {
+      border: 2px dashed #c3964d;
+      border-radius: 10px;
+      padding: 30px 20px;
+      text-align: center;
+      background-color: #111;
+      color: #c3964d;
+      cursor: pointer;
+      position: relative;
+      transition: background-color 0.3s ease;
+    }
+    #drop-zone:hover {
+      background-color: #222;
+    }
+    #drop-zone input[type="file"] {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      height: 100%;
+      width: 100%;
+      cursor: pointer;
+    }
+    .upload-icon {
+      width: 40px;
+      margin-bottom: 10px;
+      filter: brightness(0) saturate(100%) invert(80%) sepia(33%) saturate(737%) hue-rotate(5deg) brightness(99%) contrast(94%);
+    }
+    #preview-container {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 15px;
+      gap: 10px;
+    }
+    #preview-container img {
+      max-width: 100px;
+      height: auto;
+      border: 2px solid #c3964d;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body class="contact">
+  <h1>Demande de Devis</h1>
+  <form action="https://formsubmit.co/TON_EMAIL@exemple.com" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_subject" value="Nouvelle Demande via Restaur Real Auto">
+    <input type="hidden" name="_template" value="box">
+
+    <label for="nom">Nom :</label>
+    <input type="text" id="nom" name="Nom" required>
+
+    <label for="email">Email :</label>
+    <input type="email" id="email" name="Email" required>
+
+    <label for="service">Type de Service :</label>
+    <select id="service" name="Service" required>
+      <option value="">-- Sélectionner --</option>
+      <option value="Rénovation">Renseignements</option>
+      <option value="Location">Location</option>
+      <option value="Restauration">Restauration</option>
+      <option value="Nettoyage">Nettoyage</option>
+      <option value="Entretien">Entretien</option>
+    </select>
+
+    <label for="message">Votre message :</label>
+    <textarea id="message" name="Message" rows="5" required></textarea>
+
+    <div class="form-group">
+      <label for="images">Ajouter des images (facultatif) :</label>
+      <div id="drop-zone">
+        <img src="./images/icones/dwlnd.png" alt="Icône Upload" class="upload-icon" />
+        <p>Glissez vos images ici ou cliquez pour sélectionner</p>
+        <input type="file" id="images" name="Images[]" accept="image/*" multiple>
+      </div>
+      <div id="preview-container"></div>
+    </div>
+
+    <div class="button-container">
+      <button type="submit">Envoyer la Demande</button>
+    </div>
+  </form>
+
+  <script>
+    const dropZone = document.getElementById('drop-zone');
+    const input = document.getElementById('images');
+    const preview = document.getElementById('preview-container');
+
+    dropZone.addEventListener('click', () => input.click());
+
+    input.addEventListener('change', () => {
+      preview.innerHTML = '';
+      Array.from(input.files).forEach(file => {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const img = document.createElement('img');
+          img.src = e.target.result;
+          preview.appendChild(img);
+        };
+        reader.readAsDataURL(file);
+      });
+    });
+
+    dropZone.addEventListener('dragover', e => {
+      e.preventDefault();
+      dropZone.style.backgroundColor = '#222';
+    });
+
+    dropZone.addEventListener('dragleave', () => {
+      dropZone.style.backgroundColor = '#111';
+    });
+
+    dropZone.addEventListener('drop', e => {
+      e.preventDefault();
+      dropZone.style.backgroundColor = '#111';
+      input.files = e.dataTransfer.files;
+      input.dispatchEvent(new Event('change'));
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Location - Restaur Real Auto</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+            background-color: #ffffff; /* Fond blanc pour un look épuré */
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        main {
+            padding: 40px 20px;
+        }
+        h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 4rem;
+            text-transform: uppercase;
+            color: #c3964d;
+            text-align: center;
+            margin-bottom: 50px;
+            letter-spacing: 1px;
+        }
+        .vehicle-carousel-container {
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 40px;
+            max-width: 1100px;
+            height: auto;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            background-color: #fff; /* Fond blanc pour le carrousel */
+        }
+        .vehicle-carousel {
+            display: flex;
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            height: 100%;
+        }
+        .vehicle-slide {
+            min-width: 100%;
+            display: flex;
+            flex-direction: column;
+          
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            height: 100%;
+        }
+        .vehicle-image-container {
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            position: relative;
+        }
+        .vehicle-image {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            transition: transform 0.4s ease-in-out;
+        }
+        .vehicle-slide:hover .vehicle-image {
+            transform: scale(1.03);
+        }
+        .vehicle-details {
+            width: 100%;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .vehicle-details h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3rem;
+            color: #333;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+        .vehicle-details p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+        .price {
+            font-size: 1.7rem;
+            font-weight: bold;
+            color: #c3964d;
+            margin-bottom: 30px;
+        }
+        .reserve-button {
+            display: inline-block;
+            padding: 15px 35px;
+            background-color: #000;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .reserve-button:hover {
+            background-color: #333;
+            transform: translateY(-2px);
+        }
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            right: 20px;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .carousel-controls button {
+            background: rgba(0, 0, 0, 0.2);
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            opacity: 0.5;
+            border-radius: 5px;
+            padding: 5px 10px;
+            transition: opacity 0.3s ease;
+        }
+        .carousel-controls button:hover {
+            opacity: 0.8;
+        }
+        .services-slider {
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            width: 300px; /* Réduit la largeur */
+            color: #333;
+            padding: 20px;
+            text-align: center;
+            margin: 0 auto 60px auto; /* Centre horizontalement avec auto sur les marges gauche et droite */
+            background-color: whitesmoke; /* Fond rouge pour les services */
+            display: block; /* Assure que l'élément est traité comme un bloc */
+        }
+
+        .services-slider h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+            color: #c3964d;
+        }
+        .slider-wrapper {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            margin: 0 auto;
+            height: 100px;
+        }
+        .slide-container {
+            display: flex;
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            height: 100%;
+            align-items: center;
+        }
+        .slide {
+            min-width: 100%;
+            padding: 15px;
+            box-sizing: border-box;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+        }
+        .slide h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .slide p {
+            font-size: 1rem; /* Ajustez la taille de la police pour une meilleure lisibilité */
+            line-height: 1.6; /* Augmentez l'interligne pour améliorer la lisibilité */
+            color: #c3964d; /* Conservez la couleur dorée pour le texte */
+            margin: 10px 0; /* Ajoutez une marge pour espacer le texte */
+            font-weight: 700; /* Ajustez l'épaisseur de la police si nécessaire */
+            opacity: 0.9; /* Réduisez légèrement l'opacité pour un effet subtil */
+        }
+
+        .slider-controls-services {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            right: 10px;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .slider-controls-services button {
+            background: rgba(0, 0, 0, 0.1);
+            border: none;
+            color: #333;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0.5;
+            border-radius: 5px;
+            padding: 5px 10px;
+            transition: opacity 0.3s ease;
+        }
+        .slider-controls-services button:hover {
+            opacity: 0.8;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #c3964d;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+        }
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <nav class="navbar" aria-label="Main Navigation">
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li class="dropdown">
+                    <a href="restauration.html">Restauration</a>
+                    <div class="dropdown-content">
+                        <a href="sablage.html">Sablage</a>
+                        <a href="tolerie.html">Tôlerie</a>
+                        <a href="peinture.html">Peinture</a>
+                        <a href="meca.html">Mécanique</a>
+                        <a href="sellerie.html">Sellerie</a>
+                        <a href="perso.html">Personnalisation</a>
+                    </div>
+                </li>
+                <li><a href="entretien.html">Entretien</a></li>
+                <li><a href="nettoyage.html">Nettoyage</a></li>
+                <li><a href="evenementiel.html">Événementiel</a></li>
+                <li><a href="location.html">Location</a></li>
+            </ul>
+        </nav>
+        <div class="hero">
+            <img src="./images/logo.png" alt="Logo Restaur Real Auto" class="logo" />
+        </div>
+        <div class="header-icons">
+            <img src="./images/icones/calendrier.png" alt="Calendrier" />
+            <img src="./images/icones/utilisateur.png" alt="Utilisateur" />
+        </div>
+    </header>
+
+    <main>
+        <h1>Location de véhicules d'exception</h1>
+
+        <section class="vehicle-carousel-container">
+            <div class="vehicle-carousel" id="vehicleCarousel">
+                <div class="vehicle-slide">
+                    <div class="vehicle-image-container">
+                        <img src="./images/CLASSE.jpg" alt="Mercedes Classe E" class="vehicle-image" />
+                    </div>
+                    <div class="vehicle-details">
+                        <h3>Mercedes Classe E</h3>
+                        <p>Élégance et confort pour vos déplacements professionnels ou personnels.</p>
+                        <div class="price">À partir de 150€/jour</div>
+                        <a href="#" class="reserve-button">Réserver</a>
+                    </div>
+                </div>
+                <div class="vehicle-slide">
+                    <div class="vehicle-image-container">
+                        <img src="./images/AUDIA6.webp" alt="Audi A6" class="vehicle-image" />
+                    </div>
+                    <div class="vehicle-details">
+                        <h3>Audi A6</h3>
+                        <p>Performance et technologie au service d'une expérience de conduite unique.</p>
+                        <div class="price">À partir de 140€/jour</div>
+                        <a href="#" class="reserve-button">Réserver</a>
+                    </div>
+                </div>
+                <div class="vehicle-slide">
+                    <div class="vehicle-image-container">
+                        <img src="./images/SERIE5.jpg" alt="BMW Série 5" class="vehicle-image" />
+                    </div>
+                    <div class="vehicle-details">
+                        <h3>BMW Série 5</h3>
+                        <p>Dynamisme et innovation pour un plaisir de conduire inégalé.</p>
+                        <div class="price">À partir de 160€/jour</div>
+                        <a href="#" class="reserve-button">Réserver</a>
+                    </div>
+                </div>
+                <div class="vehicle-slide">
+                    <div class="vehicle-image-container">
+                        <img src="./images/EVOQUE.jpg" alt="Range Rover Evoque" class="vehicle-image" />
+                    </div>
+                    <div class="vehicle-details">
+                        <h3>Range Rover Evoque</h3>
+                        <p>Style affirmé et polyvalence pour toutes vos aventures.</p>
+                        <div class="price">À partir de 120€/jour</div>
+                        <a href="#" class="reserve-button">Réserver</a>
+                    </div>
+                </div>
+                <div class="vehicle-slide">
+                    <div class="vehicle-image-container">
+                        <img src="./images/TURBOS.webp" alt="Porsche Cayenne" class="vehicle-image" />
+                    </div>
+                    <div class="vehicle-details">
+                        <h3>Porsche Cayenne</h3>
+                        <p>Puissance et luxe pour une expérience de conduite sportive et confortable.</p>
+                        <div class="price">À partir de 250€/jour</div>
+                        <a href="#" class="reserve-button">Réserver</a>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-controls">
+                <button onclick="prevVehicle()">&#10094;</button>
+                <button onclick="nextVehicle()">&#10095;</button>
+            </div>
+        </section>
+
+        <section class="services-slider">
+            <h2>Services additionnels</h2>
+            <div class="slider-wrapper">
+                <div class="slide-container" id="slideContainerServices">
+                    <div class="slide">
+                        <h3>Chauffeur privé</h3>
+                        <p>Voyagez en toute sérénité.</p>
+                    </div>
+                    <div class="slide">
+                        <h3>Livraison personnalisée</h3>
+                        <p>Votre véhicule où vous voulez.</p>
+                    </div>
+                    <div class="slide">
+                        <h3>Assurance premium</h3>
+                        <p>Roulez l'esprit tranquille.</p>
+                    </div>
+                    <div class="slide">
+                        <h3>Équipements sur demande</h3>
+                        <p>Adaptez votre location.</p>
+                    </div>
+                    <div class="slide">
+                        <h3>Assistance 24h/7j</h3>
+                        <p>Nous sommes toujours là pour vous.</p>
+                    </div>
+                </div>
+                <div class="slider-controls-services">
+                    <button onclick="prevSlideServices()">&#10094;</button>
+                    <button onclick="nextSlideServices()">&#10095;</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <div class="footer-icons left">
+            <img src="./images/icones/appel-telephonique.png" alt="Téléphone" />
+            <img src="./images/icones/email.png" alt="Email" />
+        </div>
+        <p>&copy; 2024 Restaur Real Auto</p>
+        <div class="footer-icons right">
+            <img src="./images/icones/google-maps.png" alt="Localisation" />
+            <img src="./images/icones/instagram.png" alt="Instagram" />
+        </div>
+    </footer>
+
+    <script>
+      const vehicleCarousel = document.getElementById('vehicleCarousel');
+      const vehicleSlides = document.querySelectorAll('.vehicle-slide');
+      let vehicleIndex = 0;
+      const vehicleCount = vehicleSlides.length;
+      const vehicleSpeed = 7000;
+
+      function nextVehicle() {
+          vehicleIndex = (vehicleIndex + 1) % vehicleCount;
+          updateVehicleCarousel();
+      }
+
+      function prevVehicle() {
+          vehicleIndex = (vehicleIndex - 1 + vehicleCount) % vehicleCount;
+          updateVehicleCarousel();
+      }
+
+      function updateVehicleCarousel() {
+          const translateValue = -vehicleIndex * 100 + '%';
+          vehicleCarousel.style.transform = 'translateX(' + translateValue + ')';
+      }
+
+      setInterval(nextVehicle, vehicleSpeed);
+
+      const slideContainerServices = document.getElementById('slideContainerServices');
+      const slidesServices = document.querySelectorAll('.slide');
+      let slideIndexServices = 0;
+      const serviceSpeed = 5000;
+
+      function nextSlideServices() {
+          slideIndexServices = (slideIndexServices + 1) % slidesServices.length;
+          updateSliderServices();
+      }
+
+      function prevSlideServices() {
+          slideIndexServices = (slideIndexServices - 1 + slidesServices.length) % slidesServices.length;
+          updateSliderServices();
+      }
+
+      function updateSliderServices() {
+          const translateValue = -slideIndexServices * 100 + '%';
+          slideContainerServices.style.transform = 'translateX(' + translateValue + ')';
+      }
+
+      setInterval(nextSlideServices, serviceSpeed);
+  </script>
+</body>
+</html>
