@@ -170,23 +170,29 @@
 
   <!-- HEADER - NE PAS TOUCHER -->
   <header class="header">
-    <div class="navbar" aria-label="Main Navigation">
+    <nav class="navbar" aria-label="Main Navigation">
       <ul>
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="restauration.html">Restauration</a></li>
-        <li><a href="entretien.html">Entretien</a></li>
-        <li><a href="nettoyage.html">Nettoyage</a></li>
-        <li><a href="evenementiel.html">Événementiel</a></li>
-      
+          <li><a href="index.html">Accueil</a></li>
+          <li class="dropdown">
+            <a href="restauration.html">Restauration</a>
+            <div class="dropdown-content">
+              <a href="sablage.html">Sablage</a>
+              <a href="tolerie.html">Tôlerie</a>
+              <a href="peinture.html">Peinture</a>
+              <a href="meca.html">Mécanique</a>
+              <a href="sellerie.html">Sellerie</a>
+              <a href="perso.html">Personnalisation</a>
+            </div>
+          </li>
+          <li><a href="entretien.html">Entretien</a></li>
+          <li><a href="nettoyage.html">Nettoyage</a></li>
+          <li><a href="evenementiel.html">Événementiel</a></li>
       </ul>
-    </div>
+    </nav>
     <div class="hero">
       <img src="/images/logo.png" alt="Logo Restaur Real Auto" class="logo" />
     </div>
-    <div class="header-icons">
-      <img src="/images/icones/calendrier.png" alt="Calendrier" />
-      <img src="/images/icones/utilisateur.png" alt="Utilisateur" />
-    </div>
+   
   </header>
 
   <!-- MAIN -->

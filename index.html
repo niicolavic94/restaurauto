@@ -6,127 +6,7 @@
     <title>Restaur Real Auto</title>
     <link rel="stylesheet" href="style.css" />
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #000;
-            color: #fff;
-        }
-
-        h1 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 2.5em;
-            text-transform: uppercase;
-            color: #c3964d;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        #black {
-            color: black;
-        }
-
-        /* HEADER & NAVIGATION */
-        .header {
-            background-image: url('./images/Bandeau.png');
-            background-size: cover;
-            background-position: center;
-            height: auto;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: center;
-            padding: 15px;
-            width: 100%;
-            position: absolute;
-            left: 0;
-            z-index: 100;
-        }
-
-        .navbar ul {
-            list-style: none;
-            display: flex;
-            width: 80%;
-            padding: 0;
-            margin: 0;
-            justify-content: space-around;
-        }
-
-        .navbar li {
-            text-align: center;
-        }
-
-        .navbar a {
-            display: block;
-            text-decoration: none;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 10px;
-            font-weight: bold;
-            box-sizing: border-box;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.2), -8px -8px 20px rgba(255, 255, 255, 0.05), 0 0 15px rgba(212, 175, 55, 0.4);
-            text-shadow: 0 0 5px #c3964d, 0 0 10px #c3964d, 0 0 20px #d4af37, 0 0 40px #d4af37;
-            transition: all 0.3s ease-in-out;
-        }
-
-        .navbar a:hover {
-            background: rgba(255, 255, 255, 0.08);
-            box-shadow: 8px 8px 30px rgba(0, 0, 0, 0.3), -8px -8px 30px rgba(255, 255, 255, 0.1), 0 0 25px rgba(255, 215, 0, 0.5);
-            text-shadow: 0 0 10px #fff8dc, 0 0 20px #ffd700, 0 0 30px #ffd700, 0 0 50px #ffec8b;
-        }
-
-        .hero {
-            position: relative;
-            padding: 50px 20px;
-            text-align: center;
-            margin-top: 50px;
-        }
-
-        .hero .logo {
-            z-index: 100;
-            width: 300px;
-            max-width: 100%;
-            height: auto;
-            animation: pulse 2s infinite alternate;
-        }
-
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-                opacity: 0.8;
-            }
-            100% {
-                transform: scale(1.1);
-                opacity: 1;
-            }
-        }
-
-        .header-icons {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            display: flex;
-            gap: 20px;
-        }
-
-        .header-icons img {
-            width: 40px;
-        }
 
         /* SERVICES */
         .services {
@@ -640,124 +520,37 @@
             transform: scale(1.1);
         }
 
-        /* FOOTER */
-        footer {
-            background-color: #c3964d;
-            padding: 40px 20px; /* Increased padding */
-            color: white;
-            text-align: center;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            margin-top: 80px; /* Increased margin */
-            font-size: 1em;
-        }
-
-        .footer-icons {
-            display: flex;
-            gap: 15px; /* Increased gap */
-        }
-
-        .footer-icons img {
-            width: 35px; /* Slightly larger icons */
-            margin: 0 15px;
-            filter: brightness(110%);
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px); /* Increased distance */
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .navbar ul {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .service-cards {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-icons {
-                justify-content: center;
-                margin-top: 15px;
-            }
-
-            footer {
-                flex-direction: column;
-                gap: 15px;
-                text-align: center;
-            }
-
-            .header-icons {
-                flex-direction: row;
-                justify-content: center;
-                gap: 25px;
-                margin-bottom: 15px;
-            }
-
-            .navbar a {
-                padding: 12px 15px;
-                margin: 8px 0;
-            }
-
-            .card-image,
-            .card-content {
-                height: auto;
-            }
-
-            .contact-details {
-                grid-template-columns: 1fr; /* Stack on smaller screens */
-            }
-
-            .contact-item {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .contact-item img {
-                margin-bottom: 10px;
-            }
-
-            .contact-icons {
-                gap: 15px;
-            }
-
-            .social-icon {
-                width: 40px;
-                height: 40px;
-            }
-        }
+        
     </style>
 </head>
 <body>
 
+
     <header class="header">
-        <nav class="navbar">
-            <ul>
-                <li><a href="#accueil">Accueil</a></li>
-                <li><a href="restauration.html">Restauration</a></li>
-                <li><a href="entretien.html">Entretien</a></li>
-                <li><a href="nettoyage.html">Nettoyage</a></li>
-                <li><a href="evenementiel.html">Événementiel</a></li>
-            </ul>
+        <nav class="navbar" aria-label="Main Navigation">
+          <ul>
+              <li><a href="index.html">Accueil</a></li>
+              <li class="dropdown">
+                <a href="restauration.html">Restauration</a>
+                <div class="dropdown-content">
+                  <a href="sablage.html">Sablage</a>
+                  <a href="tolerie.html">Tôlerie</a>
+                  <a href="peinture.html">Peinture</a>
+                  <a href="meca.html">Mécanique</a>
+                  <a href="sellerie.html">Sellerie</a>
+                  <a href="perso.html">Personnalisation</a>
+                </div>
+              </li>
+              <li><a href="entretien.html">Entretien</a></li>
+              <li><a href="nettoyage.html">Nettoyage</a></li>
+              <li><a href="evenementiel.html">Événementiel</a></li>
+          </ul>
         </nav>
         <div class="hero">
-            <img src="./images/logo.png" alt="Logo Restaur Real Auto" class="logo" />
+          <img src="/images/logo.png" alt="Logo Restaur Real Auto" class="logo" />
         </div>
-        <div class="header-icons">
-            <img src="./images/icones/calendrier.png" alt="Calendrier" />
-            <img src="./images/icones/utilisateur.png" alt="Utilisateur" />
-        </div>
-    </header>
+       
+      </header>
 
     <section class="services" id="services">
         <h1>Services</h1>
@@ -765,7 +558,7 @@
             <div class="card">
                 <div class="card-inner">
                     <div class="card-front">
-                        <img src="./images/restauration.jpg" alt="Restauration" />
+                        <img src="/images/restauration.jpg" alt="Restauration" />
                         <p>Restauration</p>
                     </div>
                     <div class="card-back">
@@ -777,7 +570,7 @@
             <div class="card">
                 <div class="card-inner">
                     <div class="card-front">
-                        <img src="./images/entretien.jpg" alt="Entretien" />
+                        <img src="/images/entretien.jpg" alt="Entretien" />
                         <p>Entretien</p>
                     </div>
                     <div class="card-back">
@@ -789,7 +582,7 @@
             <div class="card">
                 <div class="card-inner">
                     <div class="card-front">
-                        <img src="./images/nettoyage.jpg" alt="Nettoyage" />
+                        <img src="/images/nettoyage.jpg" alt="Nettoyage" />
                         <p>Nettoyage</p>
                     </div>
                     <div class="card-back">
@@ -801,7 +594,7 @@
             <div class="card">
                 <div class="card-inner">
                     <div class="card-front">
-                        <img src="./images/mariage.jpg" alt="Événementiel" />
+                        <img src="/images/mariage.jpg" alt="Événementiel" />
                         <p>Événementiel</p>
                     </div>
                     <div class="card-back">
@@ -856,19 +649,19 @@
               <h2>Informations de Contact</h2>
               <div class="contact-details">
                   <div class="contact-item" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-                      <a href="https://goo.gl/maps/your-map-link" target="_blank"><img src="./images/icones/google-maps.png" alt="Localisation" title="Localisation" class="social-icon" style="margin-bottom: 10px;"/></a>
+                      <a href="https://goo.gl/maps/your-map-link" target="_blank"><img src="/images/icones/google-maps.png" alt="Localisation" title="Localisation" class="social-icon" style="margin-bottom: 10px;"/></a>
                       <p style="margin: 0;"><strong>Adresse :</strong> <a href="https://goo.gl/maps/your-map-link" target="_blank">123 Rue Exemple, 75000 Paris, France</a></p>
                   </div>
                   <div class="contact-item" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-                      <img src="./images/icones/appel.png" alt="Téléphone" style="margin-bottom: 10px;"/>
+                      <img src="/images/icones/appel.png" alt="Téléphone" style="margin-bottom: 10px;"/>
                       <p style="margin: 0;"><strong>Téléphone :</strong> <a href="tel:+33123456789">+33 1 23 45 67 89</a></p>
                   </div>
                   <div class="contact-item" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-                      <img src="./images/icones/e-mail.png" alt="Email" style="margin-bottom: 10px;"/>
+                      <img src="/images/icones/e-mail.png" alt="Email" style="margin-bottom: 10px;"/>
                       <p style="margin: 0;"><strong>Email :</strong> <a href="mailto:contact@restaurrealauto.com">contact@restaurrealauto.com</a></p>
                   </div>
                   <div class="contact-item" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-                      <img src="./images/icones/lhorloge.png" alt="Horaires" style="margin-bottom: 10px;"/>
+                      <img src="/images/icones/lhorloge.png" alt="Horaires" style="margin-bottom: 10px;"/>
                       <p style="margin: 0;"><strong>Horaires :</strong> <a> Lun-Ven: 9h - 18h, Sam: 10h - 16h </a></p>
                   </div>
               </div>
@@ -908,7 +701,7 @@
                         <label for="images">Ajouter des images (facultatif) :</label>
                         <div id="drop-zone" class="file-input-wrapper">
                             <label for="images" class="file-input-label">
-                                <img src="./images/dwlnd.png" alt="Icône Upload" class="upload-icon" />
+                                <img src="/images/icones/dwlnd.png" alt="Icône Upload" class="upload-icon" />
                                 <p>Glissez vos images ici ou cliquez pour sélectionner</p>
                             </label>
                             <input type="file" id="images" name="Images[]" accept="image/*" multiple style="display: none;">
@@ -933,7 +726,8 @@
             <div class="about-card">
                 <div class="about-card-inner">
                     <div class="about-card-front">
-                        <img src="./images/papa.jpg" alt="Papa" />
+                        
+                        <img src="/images/papa.jpg" alt="Papa" /><H1>PAPA</H1>
                     </div>
                     <div class="about-card-back">
                         <p>Le père avec ses 35 ans dans le métier de la carrosserie peinture</p>
@@ -943,7 +737,8 @@
             <div class="about-card">
                 <div class="about-card-inner">
                     <div class="about-card-front">
-                        <img src="./images/celia.jpg" alt="Celia" />
+                      
+                        <img src="/images/celia.jpg" alt="Celia" />  <H1>CELIA</H1>
                     </div>
                     <div class="about-card-back">
                         <p>La fille titulaire d'un CAP de préparatrice en carrosserie</p>
@@ -953,7 +748,8 @@
             <div class="about-card">
                 <div class="about-card-inner">
                     <div class="about-card-front">
-                        <img src="./images/frere.jpg" alt="Frère" />
+                        
+                        <img src="/images/frere.jpg" alt="Frère" /><H1>FRERO</H1>
                     </div>
                     <div class="about-card-back">
                         <p>Le frère, passionné par les voitures et leur entretien</p>
@@ -963,17 +759,17 @@
         </div>
     </section>
 
-    <footer>
-        <div class="footer-icons">
-            <img src="./images/icones/appel-telephonique.png" alt="Téléphone" />
-            <img src="./images/icones/email.png" alt="Email" />
+    <footer role="contentinfo">
+        <div class="footer-icons left">
+          <img src="/images/icones/appel-telephonique.png" alt="Téléphone" />
+          <img src="/images/icones/email.png" alt="Email" />
         </div>
-        <p>© 2024 Restaur Real Auto</p>
-        <div class="footer-icons">
-            <img src="./images/icones/google-maps.png" alt="Localisation" />
-            <img src="./images/icones/instagram.png" alt="Instagram" />
+        <p>&copy; 2024 Restaur Real Auto</p>
+        <div class="footer-icons right">
+          <img src="/images/icones/google-maps.png" alt="Localisation" />
+          <img src="/images/icones/instagram.png" alt="Calendrier" />
         </div>
-    </footer>
+      </footer>
 
     <script>
         const avisCards = document.querySelectorAll('.avis-card');
